@@ -8,11 +8,11 @@ $ErrorActionPreference = 'stop'
         Get-MgUser Last Sign In using the SignInActivity property.
 
     .DESCRIPTION
-        An example of how to use the SignInActivity property to retrueve the last sign in of an account.
+        An example of how to use the SignInActivity property to retrieve the last sign in of an account.
 
         NOTE: 
         - Azure AD updates the SignInActivity property roughly once every 6 hours. 
-        - All times returned are in UTC+0
+        - All times are in UTC+0
 
     .NOTES
         AUTHOR: Chris Dymond
