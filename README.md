@@ -12,3 +12,11 @@ Example usage of the PowerShell SDK for Microsoft Graph.
 - [With Assigned Licenses](users/With%20Assigned%20Licenses.ps1)
 - [With Email Address Value](users/With%20Email%20Address.ps1)
 - [With UserPrincipalName Starting With](/users/With%20UserPrincipalName%20Starting%20With.ps1)
+
+## Conditional Access
+
+- [Policies](identity/conditional%20access/Policies.ps1)
+
+### Templates
+
+- [Internals-IdentityProtection-RegisterSecurityInfo-BYODOrUntrustedLocation-MFA](/identity//conditional%20access/templates/Internals-IdentityProtection-RegisterSecurityInfo-BYODOrUntrustedLocation-MFA.ps1)
