@@ -27,10 +27,10 @@ $breakGlassAccounts = @('','')
 
 $policy = [Microsoft.Graph.PowerShell.Models.MicrosoftGraphConditionalAccessPolicy]::new()
 $policy.DisplayName = 'Internals-IdentityProtection-RegisterSecurityInfo-BYODOrUntrustedLocation-MFA'
-$policy.State = 'enabledForReportingButNotEnforced'
+$policy.State = 'disabled'
 
 $policy.Conditions.Users.IncludeGroups = $CA_Internals_Persona_Group
-$policy.Conditions.Users.ExcludeGroups = $breakGlassAccounts
+$policy.Conditions.Users.ExcludeUsers = $breakGlassAccounts
 $policy.Conditions.Devices.DeviceFilter.Mode = 'exclude'
 $policy.Conditions.Devices.DeviceFilter.Rule = 'device.trustType -eq "AzureAD" -or device.trustType -eq "ServerAD"'
 $policy.Conditions.Applications.IncludeUserActions = 'urn:user:registersecurityinfo'
