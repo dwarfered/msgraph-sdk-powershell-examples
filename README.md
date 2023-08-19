@@ -19,6 +19,14 @@ Example usage of the PowerShell SDK for Microsoft Graph.
 
 ### Templates
 
+Zero Trust Persona-based Azure AD Conditional Access Policies
+
+Based upon the excellent [Microsoft Learn: Conditional Access architecture and personas](https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-architecture){:target="_blank"} and [Framework and policies](https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-framework){:target="_blank"} pages authored by [Claus Jespersen](https://www.linkedin.com/in/claus-jespersen-25b0422/).
+
+> Note that for clarity, I have deviated to the following naming convention: <br> **Persona**-**PolicyType**-**App/User Action**-**Condition**-**AccessControl**<br>
+
+<small>*This collection is a work in progress*.</small>
+
 - [Guests-BaseProtection-AllApps-MFA](/identity/conditional%20access/templates/Guests-BaseProtection-AllApps-MFA.ps1)
 
 - [Internals-IdentityProtection-RegisterSecurityInfo-BYODOrUntrustedLocation-MFA](/identity/conditional%20access/templates/Internals-IdentityProtection-RegisterSecurityInfo-BYODOrUntrustedLocation-MFA.ps1)
