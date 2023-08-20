@@ -23,8 +23,8 @@ $ErrorActionPreference = 'stop'
 #>
 
 # Apply Your Object Ids
-$CA_Internals_Persona_Group = 'dcdc6e8d-a073-4642-9340-c8d62414954f'
-$breakGlassAccounts = @('a67541c2-bb42-4c88-9b6d-7cb45d286776')
+$CA_Internals_Persona_Group = ''
+$breakGlassAccounts = @('','')
 
 $policy = [Microsoft.Graph.PowerShell.Models.MicrosoftGraphConditionalAccessPolicy]::new()
 $policy.DisplayName = 'Internals-DataProtection-O365-UnmanagedDevice-AppEnforcedRestrictions'
