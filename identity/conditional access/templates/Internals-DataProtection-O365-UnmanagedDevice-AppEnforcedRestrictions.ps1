@@ -34,7 +34,7 @@ $policy.Conditions.Users.IncludeGroups = $CA_Internals_Persona_Group
 $policy.Conditions.Users.ExcludeUsers = $breakGlassAccounts
 $policy.Conditions.Applications.IncludeApplications = 'Office365'
 $policy.Conditions.ClientAppTypes = 'all'
-<# Optionally exclude trusted locations #>
+<# Optionally include all locations with trusted locations excluded #>
 # $policy.Conditions.Locations.IncludeLocations = 'All'
 # $policy.Conditions.Locations.ExcludeLocations = 'AllTrusted'
 
