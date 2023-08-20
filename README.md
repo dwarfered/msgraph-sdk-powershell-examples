@@ -2,6 +2,12 @@
 
 Example usage of the PowerShell SDK for Microsoft Graph.
 
+## Prerequisite
+[PowerShell SDK for Microsoft Graph](https://github.com/microsoftgraph/msgraph-sdk-powershell)
+```powershell
+Install-Module Microsoft.Graph -AllowClobber -Force
+```
+
 ## Users
 
 - [Cloud Only](users/Cloud%20Only.ps1)
