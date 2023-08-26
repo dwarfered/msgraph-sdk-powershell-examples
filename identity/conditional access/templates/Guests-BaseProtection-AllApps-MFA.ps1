@@ -16,12 +16,16 @@ $ErrorActionPreference = 'stop'
         UPDATED: 19-08-2023
 #>
 
+$config = Get-Content -Path ./config.json -Raw | ConvertFrom-Json
+
 $policy = [Microsoft.Graph.PowerShell.Models.MicrosoftGraphConditionalAccessPolicy]::new()
 $policy.DisplayName = 'Guests-BaseProtection-AllApps-MFA'
 $policy.State = 'disabled'
 
 $policy.Conditions.Users.IncludeGuestsOrExternalUsers.ExternalTenants.MembershipKind = 'all'
 $policy.Conditions.Users.IncludeGuestsOrExternalUsers.GuestOrExternalUserTypes = 'internalGuest,b2bCollaborationGuest,b2bCollaborationMember,b2bDirectConnectUser,otherExternalUser,serviceProvider'
+$policy.Conditions.Users.ExcludeGroups = $config.'CA-Persona-Guests-BaseProtection-Exclusions'
+$policy.Conditions.Users.ExcludeUsers = $config.'BreakGlassAccounts'
 $policy.Conditions.Applications.IncludeApplications = 'All'
 $policy.Conditions.ClientAppTypes = 'all'
 

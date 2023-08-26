@@ -1,0 +1,13 @@
+{
+    "CA-Persona-Internals": "dcdc6e8d-a073-4642-9340-c8d62414954f",
+    "CA-Persona-Internals-BaseProtection-Exclusions": "2a23db9b-fdd5-445c-a244-e87a1c8337aa",
+    "CA-Persona-Internals-IdentityProtection-Exclusions": "2f8b6faa-01ec-4f4c-91a6-e9b49b74631e",
+    "CA-Persona-Internals-DataProtection-Exclusions": "0c6fea57-e50c-4ca0-b324-e64a590c9c83",
+    "CA-Persona-Internals-AttackSurfaceReduction-Exclusions": "c46b1f82-d446-4d88-a4f8-a6a032bcda7b",
+
+    "CA-Persona-Guests-BaseProtection-Exclusions": "8f3edb6f-5b2c-45ba-aa13-9f0febf13db3",
+    "CA-Persona-Guests-IdentityProtection-Exclusions": "5924ceb6-1902-4d74-86b7-2ccfa232ebe2",
+    "CA-Persona-Guests-DataProtection-Exclusions": "47a15856-943e-4f58-a9d5-3f68b377934c",
+
+    "BreakGlassAccounts": ["a67541c2-bb42-4c88-9b6d-7cb45d286776"]
+}
