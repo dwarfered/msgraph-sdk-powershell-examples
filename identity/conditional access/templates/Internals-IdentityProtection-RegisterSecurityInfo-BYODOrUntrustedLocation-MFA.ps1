@@ -12,10 +12,6 @@ $ErrorActionPreference = 'stop'
         A CA Policy to prevent the registration of security information when off the trusted network or on 
         a personal device.
 
-        NOTE:
-            - Create an Azure AD group 'CA-Persona-Internals' with your critera of membership
-            - Exclude your Break Glass (or Emergency) accounts
-
     .NOTES
         AUTHOR: Chris Dymond
         UPDATED: 19-08-2023
