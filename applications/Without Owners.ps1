@@ -14,8 +14,6 @@ $ErrorActionPreference = 'stop'
         UPDATED: 27-08-2023
 #>
 
-$ErrorActionPreference = 'stop'
-
 $requiredScopes = @('Application.Read.All')
 $currentScopes = (Get-MgContext).Scopes
 if ($currentScopes -match ([string]::Join('|',$requiredScopes)).Count -ne $requiredScopes.Count) {
