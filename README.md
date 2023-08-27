@@ -25,6 +25,9 @@ Using an Application Registration (Platform: Mobile and desktop applications, re
 Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 ```
 
+## Groups
+- [Cloud Only](/groups/Cloud%20Only.ps1)
+
 ## Users
 
 - [Cloud Only](users/Cloud%20Only.ps1)
