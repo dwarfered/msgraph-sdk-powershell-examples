@@ -1,6 +1,6 @@
 # Microsoft Graph - PowerShell SDK Examples
 
-Example usage of the PowerShell SDK for Microsoft Graph.
+Identity and Access Management of Entra ID (Azure AD) via the PowerShell SDK for Microsoft Graph.
 
 ## Prerequisite
 [PowerShell SDK for Microsoft Graph](https://github.com/microsoftgraph/msgraph-sdk-powershell)
