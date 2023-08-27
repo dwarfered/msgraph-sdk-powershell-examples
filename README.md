@@ -8,6 +8,17 @@ Identity and Access Management of Entra ID (Azure AD) via the PowerShell SDK for
 Install-Module Microsoft.Graph -AllowClobber -Force
 ```
 
+## Connect to Microsoft Graph
+
+```powershell
+# Using the Microsoft Graph Command Line Tools Enterprise Application
+Connect-MgGraph -Scopes @('')
+# Using an existing Access Token
+Connect-MgGraph -AccessToken (ConvertTo-SecureString 'ey..'-AsPlainText -Force)
+# Using an Application Registration (Platform: Mobile and desktop applications, redirect http://localhost)
+Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
+```
+
 ## Users
 
 - [Cloud Only](users/Cloud%20Only.ps1)
