@@ -21,16 +21,15 @@ $ErrorActionPreference = 'stop'
         UPDATED: 19-08-2023
 #>
 
-# Apply Your Object Ids
-$CA_Internals_Persona_Group = ''
-$breakGlassAccounts = @('','')
+$config = Get-Content -Path ./config.json -Raw | ConvertFrom-Json
 
 $policy = [Microsoft.Graph.PowerShell.Models.MicrosoftGraphConditionalAccessPolicy]::new()
 $policy.DisplayName = 'Internals-IdentityProtection-RegisterSecurityInfo-BYODOrUntrustedLocation-MFA'
 $policy.State = 'disabled'
 
-$policy.Conditions.Users.IncludeGroups = $CA_Internals_Persona_Group
-$policy.Conditions.Users.ExcludeUsers = $breakGlassAccounts
+$policy.Conditions.Users.IncludeGroups = $config.'CA-Persona-Internals'
+$policy.Conditions.Users.ExcludeGroups = $config.'CA-Persona-Internals-IdentityProtection-Exclusions'
+$policy.Conditions.Users.ExcludeUsers = $config.'BreakGlassAccounts'
 $policy.Conditions.Devices.DeviceFilter.Mode = 'exclude'
 $policy.Conditions.Devices.DeviceFilter.Rule = 'device.trustType -eq "AzureAD" -or device.trustType -eq "ServerAD"'
 $policy.Conditions.Applications.IncludeUserActions = 'urn:user:registersecurityinfo'
