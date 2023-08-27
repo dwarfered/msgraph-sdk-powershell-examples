@@ -40,7 +40,11 @@ $policy.SessionControls.SignInFrequency.AuthenticationType = 'primaryAndSecondar
 $policy.SessionControls.SignInFrequency.FrequencyInterval = 'everyTime'
 $policy.SessionControls.SignInFrequency.IsEnabled = $true
 
-Connect-MgGraph -Scopes @('Policy.ReadWrite.ConditionalAccess') | Out-Null
+$requiredScopes = @('Policy.Read.All', 'Policy.ReadWrite.ConditionalAccess', 'Application.Read.All')
+$currentScopes = (Get-MgContext).Scopes
+if (($currentScopes -match ([string]::Join('|',$requiredScopes))).Count -ne $requiredScopes.Count) {
+    Connect-MgGraph -Scopes $requiredScopes | Out-Null
+}
 
 New-MgIdentityConditionalAccessPolicy -BodyParameter $policy
 

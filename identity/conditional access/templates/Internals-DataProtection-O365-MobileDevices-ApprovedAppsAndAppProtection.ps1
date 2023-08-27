@@ -33,7 +33,11 @@ $policy.Conditions.Platforms.IncludePlatforms = @('android', 'iOS')
 $policy.GrantControls.Operator = 'OR'
 $policy.GrantControls.BuiltInControls = @('approvedApplication','compliantApplication')
 
-Connect-MgGraph -Scopes @('Policy.ReadWrite.ConditionalAccess') | Out-Null
+$requiredScopes = @('Policy.Read.All', 'Policy.ReadWrite.ConditionalAccess', 'Application.Read.All')
+$currentScopes = (Get-MgContext).Scopes
+if (($currentScopes -match ([string]::Join('|',$requiredScopes))).Count -ne $requiredScopes.Count) {
+    Connect-MgGraph -Scopes $requiredScopes | Out-Null
+}
 
 New-MgIdentityConditionalAccessPolicy -BodyParameter $policy
 
