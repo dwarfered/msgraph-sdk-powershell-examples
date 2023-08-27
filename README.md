@@ -10,18 +10,18 @@ Install-Module Microsoft.Graph -AllowClobber -Force
 
 ## Connect to Microsoft Graph
 
+Using the Microsoft Graph Command Line Tools Enterprise Application
 ```powershell
-# Using the Microsoft Graph Command Line Tools Enterprise Application
 Connect-MgGraph -Scopes @('')
 ```
 
+Using an existing Access Token
 ```powershell
-# Using an existing Access Token
 Connect-MgGraph -AccessToken (ConvertTo-SecureString 'ey..' -AsPlainText -Force)
 ```
 
+Using an Application Registration (Platform: Mobile and desktop applications, redirect http://localhost)
 ```powershell
-# Using an Application Registration (Platform: Mobile and desktop applications, redirect http://localhost)
 Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 ```
 
