@@ -43,9 +43,9 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 - [Last Sign In Activity](users/Last%20Sign%20In%20Activity.ps1)
 - [Members](users/Members.ps1)
 - [Where On-Premises Extension Attribute Is Value](users/Where%20AD%20onPremisesExtensionAttribute%20Is%20Value.ps1)
-- [Where Assigned Licenses](users/Where%20Assigned%20Licenses.ps1)
 - [Where Email Address Is Value](users/Where%20Email%20Address%20Is%20Value.ps1)
 - [Where UserPrincipalName Starts With](/users/Where%20UserPrincipalName%20Starts%20With.ps1)
+- [With Assigned Licenses](users/With%20Assigned%20Licenses.ps1)
 
 ## Conditional Access
 
