@@ -25,6 +25,14 @@ Using an Application Registration (Platform: Mobile and desktop applications, re
 Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 ```
 
+## Applications
+- [Where Disabled or Invalid](/applications/Where%20Disabled%20or%20Invalid.ps1)
+- [With Credentials](/applications/With%20Credentials.ps1)
+- [Without Owners](/applications//Without%20Owners.ps1)
+
+## Azure Automation Account
+- [Connect to Microsoft Graph](/azure-automation-account/Connect%20To%20Microsoft%20Graph.ps1)
+
 ## Groups
 - [Cloud Only](/groups/Cloud%20Only.ps1)
 
