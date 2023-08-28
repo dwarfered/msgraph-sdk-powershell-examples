@@ -31,7 +31,7 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 - [Without Owners](/applications//Without%20Owners.ps1)
 
 ## Azure Automation Account
-- [Connect to Microsoft Graph](/azure-automation-account/Connect%20To%20Microsoft%20Graph.ps1)
+- [Acquire Access Token to Microsoft Graph](/azure-automation-account/Connect%20To%20Microsoft%20Graph.ps1)
 
 ## Groups
 - [Cloud Only](/groups/Cloud%20Only.ps1)
