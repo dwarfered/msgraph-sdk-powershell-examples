@@ -30,6 +30,12 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 - [With Credentials](/applications/With%20Credentials.ps1)
 - [Without Owners](/applications//Without%20Owners.ps1)
 
+## Service Principals
+
+### [With SAML Token Signing Key End Dates](/servicePrincipals/With%20SAML%20Token%20Signing%20Key%20End%20Dates.ps1)
+
+> Find SAML SSO applications and their token signing key expiry status.
+
 ## Azure Automation Account
 - [Acquire Access Token to Microsoft Graph](/azure-automation-account/Connect%20To%20Microsoft%20Graph.ps1)
 
