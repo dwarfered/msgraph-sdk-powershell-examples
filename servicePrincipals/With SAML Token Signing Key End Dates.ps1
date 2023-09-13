@@ -7,7 +7,7 @@ $ErrorActionPreference = 'stop'
     .SYNOPSIS
         Finding SAML application token signing key expiry dates.
 
-        NOTE - require's the Beta cmdlet.
+        NOTE - requires the beta cmdlet to select preferredTokenSigningKeyEndDateTime
 
     .DESCRIPTION
     
