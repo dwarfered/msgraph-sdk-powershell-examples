@@ -33,7 +33,7 @@ $allPrincipals = Get-MgBetaServicePrincipal @params
 
 $samlPrincipals = $allPrincipals | Where-Object { $_.PreferredTokenSigningKeyEndDateTime -ne $null }
 
-$samlPrincipals | Sort-Object PreferredTokenSigningKeyEndDateTime
+$samlPrincipals = $samlPrincipals | Sort-Object PreferredTokenSigningKeyEndDateTime
 | Select-Object AppDisplayName, 
 @{
     Name       = 'SigningKeyEndAsLocalDateTime'; 
@@ -43,3 +43,5 @@ $samlPrincipals | Sort-Object PreferredTokenSigningKeyEndDateTime
     Name       = 'State'; 
     Expression = { if ($_.PreferredTokenSigningKeyEndDateTime.ToLocalTime() -lt (Get-Date)) { 'Expired' } else { 'Active' } }
 }
+
+$samlPrincipals
