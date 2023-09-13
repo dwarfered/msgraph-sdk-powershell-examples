@@ -43,20 +43,26 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 
 ## Groups
 ### [Cloud Only](/groups/Cloud%20Only.ps1)
-> Find all Azure AD cloud groups (those not synchronised from AD on-premises).
+> Find all cloud only groups (those not synchronised from AD on-premises).
 
 ## Users
 ### [Cloud Only](users/Cloud%20Only.ps1)
-> Find All Azure AD cloud only accounts.
+> Find all cloud only accounts.
 ### [Guests](users/Guests.ps1)
-> Find all Azure AD Guest accounts.
+> Find all Guest accounts.
 ### [Last Sign In Activity](users/Last%20Sign%20In%20Activity.ps1)
 > Find the last sign-in activity of an account.
-- [Members](users/Members.ps1)
-- [Where On-Premises Extension Attribute Is Value](users/Where%20AD%20onPremisesExtensionAttribute%20Is%20Value.ps1)
-- [Where Email Address Is Value](users/Where%20Email%20Address%20Is%20Value.ps1)
-- [Where UserPrincipalName Starts With](/users/Where%20UserPrincipalName%20Starts%20With.ps1)
-- [With Assigned Licenses](users/With%20Assigned%20Licenses.ps1)
+### [Members](users/Members.ps1)
+> Find all Member accounts.
+### [Where Assigned Licenses](users/With%20Assigned%20Licenses.ps1)
+> Find all accounts assigned licenses.
+### [Where Email Address Is Value](users/Where%20Email%20Address%20Is%20Value.ps1)
+> Find Member account with a particular email address.
+### [Where On-Premises Extension Attribute](users/Where%20AD%20onPremisesExtensionAttribute%20Is%20Value.ps1)
+> Find all Member accounts with a particular on-premises extensionAttribute.
+### [Where UserPrincipalName Starts With](/users/Where%20UserPrincipalName%20Starts%20With.ps1)
+> Find accounts that start with a particular User Principal Name prefix.
+
 
 ## Conditional Access
 
