@@ -26,18 +26,14 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 ```
 
 ## Applications
-
 ### [Where Disabled or Invalid](/applications/Where%20Disabled%20or%20Invalid.ps1)
 > Find Application Registrations that have been disabled or are missing their Enterprise Application instance.
-
 ### [With Credentials](/applications/With%20Credentials.ps1)
 > Find Application Registrations with Password or Certificate Credentials.
-
 ### [Without Owners](/applications//Without%20Owners.ps1)
 > Find Application Registrations without assigned Owners.
 
 ## Service Principals
-
 ### [With SAML Token Signing Key End Dates](/servicePrincipals/With%20SAML%20Token%20Signing%20Key%20End%20Dates.ps1)
 > Find SAML SSO applications and their token signing key expiry status.
 
@@ -50,10 +46,12 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 > Find all Azure AD cloud groups (those not synchronised from AD on-premises).
 
 ## Users
-
-- [Cloud Only](users/Cloud%20Only.ps1)
-- [Guests](users/Guests.ps1)
-- [Last Sign In Activity](users/Last%20Sign%20In%20Activity.ps1)
+### [Cloud Only](users/Cloud%20Only.ps1)
+> Find All Azure AD cloud only accounts.
+### [Guests](users/Guests.ps1)
+> Find all Azure AD Guest accounts.
+### [Last Sign In Activity](users/Last%20Sign%20In%20Activity.ps1)
+> Find the last sign-in activity of an account.
 - [Members](users/Members.ps1)
 - [Where On-Premises Extension Attribute Is Value](users/Where%20AD%20onPremisesExtensionAttribute%20Is%20Value.ps1)
 - [Where Email Address Is Value](users/Where%20Email%20Address%20Is%20Value.ps1)
