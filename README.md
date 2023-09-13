@@ -58,7 +58,7 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 > Find all accounts assigned licenses.
 ### [Where Email Address Is Value](users/Where%20Email%20Address%20Is%20Value.ps1)
 > Find Member account with a particular email address.
-### [Where On-Premises Extension Attribute](users/Where%20AD%20onPremisesExtensionAttribute%20Is%20Value.ps1)
+### [Where On-Premises Extension Attribute Is Value](users/Where%20AD%20onPremisesExtensionAttribute%20Is%20Value.ps1)
 > Find all Member accounts with a particular on-premises extensionAttribute.
 ### [Where UserPrincipalName Starts With](/users/Where%20UserPrincipalName%20Starts%20With.ps1)
 > Find accounts that start with a particular User Principal Name prefix.
