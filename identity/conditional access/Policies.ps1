@@ -1,4 +1,4 @@
-#Requires -Modules @{ ModuleName="Microsoft.Graph.Beta.Authentication"; ModuleVersion="2.3.0" }
+#Requires -Modules @{ ModuleName="Microsoft.Graph.Authentication"; ModuleVersion="2.3.0" }
 #Requires -Modules @{ ModuleName="Microsoft.Graph.Beta.Identity.SignIns"; ModuleVersion="2.3.0" }
 
 $ErrorActionPreference = 'stop'
