@@ -9,8 +9,6 @@ $ErrorActionPreference = 'stop'
 
         NOTE: Requires Microsoft.Graph.Beta for the 'preferredTokenSigningKeyEndDateTime'
         attribute.
-
-    .DESCRIPTION
     
     .NOTES
         AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
