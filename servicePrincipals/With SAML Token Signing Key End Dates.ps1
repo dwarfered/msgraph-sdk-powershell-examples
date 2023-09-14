@@ -25,14 +25,12 @@ if ($currentScopes -match ([string]::Join('|', $requiredScopes)).Count -ne $requ
 
 $params = @{
     'All'      = $true;
-    'Filter'   = "accountEnabled eq true";
+    'Filter'   = "accountEnabled eq true and preferredTokenSigningKeyEndDateTime ge 2021-01-02T12:00:00Z";
     'PageSize' = '999';
     'Select'   = 'preferredTokenSigningKeyEndDateTime,appDisplayName'
 }
 
-$allPrincipals = Get-MgBetaServicePrincipal @params
-
-$samlPrincipals = $allPrincipals | Where-Object { $_.PreferredTokenSigningKeyEndDateTime -ne $null }
+$samlPrincipals = Get-MgBetaServicePrincipal @params
 
 $samlPrincipals = $samlPrincipals | Sort-Object PreferredTokenSigningKeyEndDateTime
 | Select-Object AppDisplayName, 
