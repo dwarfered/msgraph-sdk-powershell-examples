@@ -7,13 +7,14 @@ $ErrorActionPreference = 'stop'
     .SYNOPSIS
         Finding SAML application token signing key expiry dates.
 
-        NOTE - requires Microsoft.Graph.Beta
+        NOTE: Requires Microsoft.Graph.Beta for the 'preferredTokenSigningKeyEndDateTime'
+        attribute.
 
     .DESCRIPTION
     
     .NOTES
-        AUTHOR: Chris Dymond
-        UPDATED: 12-09-2023
+        AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
+        UPDATED: 14-09-2023
 #>
 
 $requiredScopes = @('Application.Read.All')
@@ -36,12 +37,24 @@ $samlPrincipals = $allPrincipals | Where-Object { $_.PreferredTokenSigningKeyEnd
 $samlPrincipals = $samlPrincipals | Sort-Object PreferredTokenSigningKeyEndDateTime
 | Select-Object AppDisplayName, 
 @{
-    Name       = 'ExpiryLocalDateTime'; 
+    Name       = 'Expiry Date Time'; 
     Expression = { $_.PreferredTokenSigningKeyEndDateTime.ToLocalTime(); }
 },
 @{
-    Name       = 'Status'; 
-    Expression = { if ($_.PreferredTokenSigningKeyEndDateTime.ToLocalTime() -lt (Get-Date)) { 'Expired' } else { 'Current' } }
+    Name       = 'Expiry Status'; 
+    Expression = { 
+        $expiry = $_.PreferredTokenSigningKeyEndDateTime.ToLocalTime()
+        $dateSoon = (Get-Date).AddMonths(1)
+        if ($expiry -gt (Get-Date) -and $expiry -lt $dateSoon) {
+            'Expires Soon'
+        }
+        elseif ($expiry -lt (Get-Date)) {
+            'Expired'
+        }
+        else {
+            'Current'
+        }
+    }
 }
 
 $samlPrincipals | Format-Table
