@@ -36,7 +36,7 @@ $samlPrincipals = $allPrincipals | Where-Object { $_.PreferredTokenSigningKeyEnd
 $samlPrincipals = $samlPrincipals | Sort-Object PreferredTokenSigningKeyEndDateTime
 | Select-Object AppDisplayName, 
 @{
-    Name       = 'SigningKeyEndAsLocalDateTime'; 
+    Name       = 'ExpiryLocalDateTime'; 
     Expression = { $_.PreferredTokenSigningKeyEndDateTime.ToLocalTime(); }
 },
 @{
@@ -44,4 +44,4 @@ $samlPrincipals = $samlPrincipals | Sort-Object PreferredTokenSigningKeyEndDateT
     Expression = { if ($_.PreferredTokenSigningKeyEndDateTime.ToLocalTime() -lt (Get-Date)) { 'Expired' } else { 'Current' } }
 }
 
-$samlPrincipals
+$samlPrincipals | Format-Table
