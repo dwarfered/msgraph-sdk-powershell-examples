@@ -40,8 +40,8 @@ $samlPrincipals = $samlPrincipals | Sort-Object PreferredTokenSigningKeyEndDateT
     Expression = { $_.PreferredTokenSigningKeyEndDateTime.ToLocalTime(); }
 },
 @{
-    Name       = 'State'; 
-    Expression = { if ($_.PreferredTokenSigningKeyEndDateTime.ToLocalTime() -lt (Get-Date)) { 'Expired' } else { 'Active' } }
+    Name       = 'Status'; 
+    Expression = { if ($_.PreferredTokenSigningKeyEndDateTime.ToLocalTime() -lt (Get-Date)) { 'Expired' } else { 'Current' } }
 }
 
 $samlPrincipals
