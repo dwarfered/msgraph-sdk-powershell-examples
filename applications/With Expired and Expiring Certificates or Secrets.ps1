@@ -5,8 +5,8 @@ $ErrorActionPreference = 'stop'
 
 <#
     .SYNOPSIS
-        Finding Application Registration Certificate & Secret expired and soon to be
-        expired credentials. 
+        Finding Application Registration Certificates & Secrets that have expired or
+        are soon to expire. 
          
     .NOTES
         AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
