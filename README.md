@@ -36,8 +36,8 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 > Find Application Registrations without assigned Owners.
 
 ## Service Principals
-### [With SAML Expiry Dates](/servicePrincipals/With%20SAML%20Expiry%20Dates.ps1)
-> Find SAML SSO expiry dates on enabled Enterprise Applications.
+### [With SAML Expiry Status](/servicePrincipals/With%20SAML%20Expiry%20Status.ps1)
+> Find SAML SSO expiry status on enabled Enterprise Applications.
 
 ## Azure Automation Account
 ### [Acquire Access Token to Microsoft Graph](/azure-automation-account/Connect%20To%20Microsoft%20Graph.ps1)
