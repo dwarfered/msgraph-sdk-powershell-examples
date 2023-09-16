@@ -12,8 +12,8 @@ $ErrorActionPreference = 'stop'
         A CA Policy mandating all Internals perform MFA unless on a compliant or domain joined device. 
 
     .NOTES
-        AUTHOR: Chris Dymond
-        UPDATED: 26-08-2023
+        AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
+        UPDATED: 16-09-2023
 #>
 
 $config = Get-Content -Path ./config.json -Raw | ConvertFrom-Json
