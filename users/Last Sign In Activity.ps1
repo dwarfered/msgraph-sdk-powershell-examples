@@ -15,11 +15,15 @@ $ErrorActionPreference = 'stop'
         - All times are in UTC+0
 
     .NOTES
-        AUTHOR: Chris Dymond
-        UPDATED: 18-08-2023
+        AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
+        UPDATED: 16-09-2023
 #>
 
-Connect-MgGraph -Scopes @('User.Read.All', 'AuditLog.Read.All') | Out-Null
+$requiredScopes = @('User.Read.All', 'AuditLog.Read.All')
+$currentScopes = (Get-MgContext).Scopes
+if ($currentScopes -match ([string]::Join('|', $requiredScopes)).Count -ne $requiredScopes.Count) {
+    Connect-MgGraph -Scopes $requiredScopes | Out-Null
+}
 
 $filter = 'accountEnabled eq true'
 
