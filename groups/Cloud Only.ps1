@@ -11,11 +11,15 @@ $ErrorActionPreference = 'stop'
         An example of how to use Get-MgGroup to find all cloud only groups.
 
     .NOTES
-        AUTHOR: Chris Dymond
-        UPDATED: 19-08-2023
+        AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
+        UPDATED: 16-09-2023
 #>
 
-Connect-MgGraph -Scopes @('Group.Read.All') | Out-Null
+$requiredScopes = @('Group.Read.All')
+$currentScopes = (Get-MgContext).Scopes
+if ($currentScopes -match ([string]::Join('|',$requiredScopes)).Count -ne $requiredScopes.Count) {
+    Connect-MgGraph -Scopes $requiredScopes | Out-Null
+}
 
 <#>
     onPremisesSyncEnabled
