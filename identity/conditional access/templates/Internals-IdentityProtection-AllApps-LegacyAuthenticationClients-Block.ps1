@@ -13,8 +13,8 @@ $ErrorActionPreference = 'stop'
         for the Internals persona.
 
     .NOTES
-        AUTHOR: Chris Dymond
-        UPDATED: 19-08-2023
+        AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
+        UPDATED: 16-09-2023
 #>
 
 $config = Get-Content -Path ./config.json -Raw | ConvertFrom-Json
