@@ -20,7 +20,7 @@ if ($currentScopes -match ([string]::Join('|', $requiredScopes)).Count -ne $requ
     Connect-MgGraph -Scopes $requiredScopes | Out-Null
 }
 
-$applications = Get-MgApplication -All -PageSize 999 `
+$applications = Get-MgApplication -All -PageSize 999
 | Where-Object { $_.KeyCredentials -ne $null -or $_.PasswordCredentials -ne $null }
 
 
