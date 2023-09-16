@@ -17,8 +17,8 @@ $ErrorActionPreference = 'stop'
             Connect-MgGraph -AccessToken $accessToken
 
     .NOTES
-        AUTHOR: Chris Dymond
-        UPDATED: 18-08-2023
+        AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
+        UPDATED: 16-09-2023
 #>
 
 $params = @{
