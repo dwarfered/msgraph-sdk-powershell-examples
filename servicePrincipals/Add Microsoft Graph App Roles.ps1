@@ -10,8 +10,8 @@ $ErrorActionPreference = 'stop'
     .DESCRIPTION
     
     .NOTES
-        AUTHOR: Chris Dymond
-        UPDATED: 29-08-2023
+        AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
+        UPDATED: 14-09-2023
 #>
 
 $principalId = '<Principal ObjectId>'
