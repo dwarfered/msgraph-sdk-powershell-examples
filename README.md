@@ -40,8 +40,8 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 > Find SAML SSO expiry status on enabled Enterprise Applications.
 
 ## Azure Automation Account
-### [Acquire Access Token to Microsoft Graph](/azure-automation-account/Connect%20To%20Microsoft%20Graph.ps1)
-> Connect to Microsoft Graph from an Azure AD Automation Account Managed Identity.
+### [Acquire Access Token for Microsoft Graph](/azure-automation-account/Connect%20To%20Microsoft%20Graph.ps1)
+> Retrieve an Access Token for Microsoft Graph from an Azure AD Automation Account Managed Identity.
 
 ## Groups
 ### [Cloud Only](/groups/Cloud%20Only.ps1)
