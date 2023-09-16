@@ -36,6 +36,8 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 > Find Application Registrations without assigned Owners.
 
 ## Service Principals
+### [Add Microsoft Graph App Role Assignment](/servicePrincipals/Add%20Microsoft%20Graph%20App%20Roles.ps1)
+> Adding a Microsoft Graph App Role to a Service Principal. ie. 'User.Read.All'
 ### [With SAML Expiry Status](/servicePrincipals/With%20SAML%20Expiry%20Status.ps1)
 > Find SAML SSO expiry status on enabled Enterprise Applications.
 
