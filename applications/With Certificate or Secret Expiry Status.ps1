@@ -10,7 +10,7 @@ $ErrorActionPreference = 'stop'
          
     .NOTES
         AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
-        UPDATED: 15-09-2023
+        UPDATED: 16-09-2023
 #>
 
 $requiredScopes = @('Application.Read.All')
@@ -30,6 +30,8 @@ $applications = Get-MgApplication @params
     $_.KeyCredentials -ne $null -or $_.PasswordCredentials -ne $null
 }
 
+$appCredentials = @()
+
 foreach ($application in $applications) {
     
     foreach ($certificate in $application.KeyCredentials) {
@@ -45,7 +47,11 @@ foreach ($application in $applications) {
         else {
             $expiryStatus = 'Current'
         }
-        $certificate | Add-Member -NotePropertyName ExpiryStatus -NotePropertyValue $expiryStatus -Force
+        $certificate | Add-Member -NotePropertyName ExpiryStatus -NotePropertyValue $expiryStatus
+        $certificate | Add-Member -NotePropertyName AppDisplayName -NotePropertyValue $application.DisplayName
+        $certificate | Add-Member -NotePropertyName AppId -NotePropertyValue $application.AppId
+        $certificate | Add-Member -NotePropertyName Kind -NotePropertyValue 'Certificate'
+        $appCredentials += $certificate
     }
 
     foreach ($secret in $application.PasswordCredentials) {
@@ -61,19 +67,20 @@ foreach ($application in $applications) {
         else {
             $expiryStatus = 'Current'
         }
-        $secret | Add-Member -NotePropertyName ExpiryStatus -NotePropertyValue $expiryStatus -Force
+        $secret | Add-Member -NotePropertyName ExpiryStatus -NotePropertyValue $expiryStatus
+        $secret | Add-Member -NotePropertyName AppDisplayName -NotePropertyValue $application.DisplayName
+        $secret | Add-Member -NotePropertyName AppId -NotePropertyValue $application.AppId
+        $secret | Add-Member -NotePropertyName Kind -NotePropertyValue 'Client Secret'
+        $appCredentials += $secret
     }
 
 }
 
-$expiredAndExpiring = $applications 
-| Where-Object {
-    $_.KeyCredentials.ExpiryStatus -in @('Expired', 'Expires Soon') -or
-    $_.PasswordCredentials.ExpiryStatus -in @('Expired', 'Expires Soon')
+$appCredentials | Sort-Object EndDateTime 
+| Select-Object AppDisplayName, AppId, Kind, ExpiryStatus,
+@{
+    Name       = 'Expiry Date Time'; 
+    Expression = { $_.EndDateTime.ToLocalTime(); }
 }
-| Select-Object DisplayName, AppId, KeyCredentials, PasswordCredentials
-
-# Applications returned have at least one expired or expiring soon credential.
-# $expiredAndExpiring.count
-$expiredAndExpiring | Format-Table
+| Format-Table
 

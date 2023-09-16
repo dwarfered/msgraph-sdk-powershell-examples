@@ -30,8 +30,8 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 > Find Application Registrations that have been disabled or are missing their Enterprise Application instance.
 ### [With Credentials](/applications/With%20Credentials.ps1)
 > Find Application Registrations with Password or Certificate Credentials.
-### [With Expired or Expiring Certificates and Secrets](/applications/With%20Expired%20and%20Expiring%20Certificates%20or%20Secrets.ps1)
-> Find Application Registrations with Expired and Expiring Certificates or Secrets.
+### [With Certificate or Secret Expiry Status](/applications/With%20Certificate%20or%20Secret%20Expiry%20Status.ps1)
+> Find Application Registration Certificate or Secret expiry status.
 ### [Without Owners](/applications//Without%20Owners.ps1)
 > Find Application Registrations without assigned Owners.
 
