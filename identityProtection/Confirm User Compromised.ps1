@@ -7,6 +7,7 @@ $ErrorActionPreference = 'stop'
     .SYNOPSIS
         Confirm one or more riskyUser objects as compromised. 
         This action sets the targeted user's risk level to high.
+        Conditional Access Policy applying to this risk level will apply.
 
         For delegated scenarios, the signed-in user must have one of the following Azure AD roles.
             Security Administrator
