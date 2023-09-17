@@ -45,6 +45,10 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 ### [Acquire Access Token for Microsoft Graph](/azure-automation-account/Connect%20To%20Microsoft%20Graph.ps1)
 > Retrieve an Access Token for Microsoft Graph from an Azure AD Automation Account Managed Identity.
 
+## Identity Protection
+### [Confirm User Compromised](/identityProtection/Confirm%20User%20Compromised.ps1)
+> Confirm one or more riskyUser objects as compromised. This action sets the targeted user's risk level to high.
+
 ## Groups
 ### [Cloud Only](/groups/Cloud%20Only.ps1)
 > Find all cloud only groups (those not synchronised from AD on-premises).
