@@ -70,7 +70,8 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 
 ## Conditional Access
 
-- [Policies](identity/conditional%20access/Policies.ps1)
+### [Policies](identity/conditional%20access/Policies.ps1)
+> Find all Conditional Access Policies.
 
 ### Templates
 
