@@ -26,9 +26,9 @@ $policy = [Microsoft.Graph.PowerShell.Models.MicrosoftGraphConditionalAccessPoli
 $policy.DisplayName = 'Internals-IdentityProtection-AllApps-HighSignInRisk-MFA'
 $policy.State = 'disabled'
 
-$policy.Conditions.Users.IncludeGroups = $config.'CA-Persona-Internals'
-$policy.Conditions.Users.ExcludeGroups = $config.'CA-Persona-Internals-IdentityProtection-Exclusions'
-$policy.Conditions.Users.ExcludeUsers = $config.'BreakGlassAccounts'
+$policy.Conditions.Users.IncludeGroups = $config.'GroupId-CA-Persona-Internals'
+$policy.Conditions.Users.ExcludeGroups = $config.'GroupId-CA-Persona-Internals-IdentityProtection-Exclusions'
+$policy.Conditions.Users.ExcludeUsers = $config.'UserId-BreakGlassAccounts'
 $policy.Conditions.Applications.IncludeApplications = 'All'
 $policy.Conditions.ClientAppTypes = 'all'
 $policy.Conditions.SignInRiskLevels = 'high'

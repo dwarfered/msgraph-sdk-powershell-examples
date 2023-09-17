@@ -1,13 +1,13 @@
 {
-    "CA-Persona-Internals": "",
-    "CA-Persona-Internals-BaseProtection-Exclusions": "",
-    "CA-Persona-Internals-IdentityProtection-Exclusions": "",
-    "CA-Persona-Internals-DataProtection-Exclusions": "",
-    "CA-Persona-Internals-AttackSurfaceReduction-Exclusions": "",
+    "GroupId-CA-Persona-Internals": "Your Group Object Id",
+    "GroupId-CA-Persona-Internals-BaseProtection-Exclusions": "Your Group Object Id",
+    "GroupId-CA-Persona-Internals-IdentityProtection-Exclusions": "Your Group Object Id",
+    "GroupId-CA-Persona-Internals-DataProtection-Exclusions": "Your Group Object Id",
+    "GroupId-CA-Persona-Internals-AttackSurfaceReduction-Exclusions": "Your Group Object Id",
 
-    "CA-Persona-Guests-BaseProtection-Exclusions": "",
-    "CA-Persona-Guests-IdentityProtection-Exclusions": "",
-    "CA-Persona-Guests-DataProtection-Exclusions": "",
+    "GroupId-CA-Persona-Guests-BaseProtection-Exclusions": "Your Group Object Id",
+    "GroupId-CA-Persona-Guests-IdentityProtection-Exclusions": "Your Group Object Id",
+    "GroupId-CA-Persona-Guests-DataProtection-Exclusions": "Your Group Object Id",
 
-    "BreakGlassAccounts": [""]
+    "UserId-BreakGlassAccounts": ["Your User Object Id"]
 }

@@ -22,9 +22,9 @@ $policy = [Microsoft.Graph.PowerShell.Models.MicrosoftGraphConditionalAccessPoli
 $policy.DisplayName = 'Internals-AttackSurfaceReduction-AllApps-UnknownPlatforms-Block'
 $policy.State = 'disabled'
 
-$policy.Conditions.Users.IncludeGroups = $config.'CA-Persona-Internals'
-$policy.Conditions.Users.ExcludeGroups = $config.'CA-Persona-Internals-AttackSurfaceReduction-Exclusions'
-$policy.Conditions.Users.ExcludeUsers = $config.'BreakGlassAccounts'
+$policy.Conditions.Users.IncludeGroups = $config.'GroupId-CA-Persona-Internals'
+$policy.Conditions.Users.ExcludeGroups = $config.'GroupId-CA-Persona-Internals-AttackSurfaceReduction-Exclusions'
+$policy.Conditions.Users.ExcludeUsers = $config.'UserId-BreakGlassAccounts'
 $policy.Conditions.Applications.IncludeApplications = 'All'
 $policy.Conditions.ClientAppTypes = 'all'
 $policy.Conditions.Platforms.ExcludePlatforms = @('android', 'iOS', 'windows', 'macOS', 'linux', 'windowsPhone')

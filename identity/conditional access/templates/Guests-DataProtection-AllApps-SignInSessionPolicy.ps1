@@ -24,8 +24,8 @@ $policy.State = 'disabled'
 
 $policy.Conditions.Users.IncludeGuestsOrExternalUsers.ExternalTenants.MembershipKind = 'all'
 $policy.Conditions.Users.IncludeGuestsOrExternalUsers.GuestOrExternalUserTypes = 'internalGuest,b2bCollaborationGuest,b2bCollaborationMember,b2bDirectConnectUser,otherExternalUser,serviceProvider'
-$policy.Conditions.Users.ExcludeGroups = $config.'CA-Persona-Guests-DataProtection-Exclusions'
-$policy.Conditions.Users.ExcludeUsers = $config.'BreakGlassAccounts'
+$policy.Conditions.Users.ExcludeGroups = $config.'GroupId-CA-Persona-Guests-DataProtection-Exclusions'
+$policy.Conditions.Users.ExcludeUsers = $config.'UserId-BreakGlassAccounts'
 $policy.Conditions.Applications.IncludeApplications = 'All'
 $policy.Conditions.ClientAppTypes = 'all'
 

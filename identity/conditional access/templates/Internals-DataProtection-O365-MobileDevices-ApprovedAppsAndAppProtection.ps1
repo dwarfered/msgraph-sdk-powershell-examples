@@ -23,9 +23,9 @@ $policy = [Microsoft.Graph.PowerShell.Models.MicrosoftGraphConditionalAccessPoli
 $policy.DisplayName = 'Internals-DataProtection-O365-MobileDevices-ApprovedAppsAndAppProtection'
 $policy.State = 'disabled'
 
-$policy.Conditions.Users.IncludeGroups = $config.'CA-Persona-Internals'
-$policy.Conditions.Users.ExcludeGroups = $config.'CA-Persona-Internals-DataProtection-Exclusions'
-$policy.Conditions.Users.ExcludeUsers = $config.'BreakGlassAccounts'
+$policy.Conditions.Users.IncludeGroups = $config.'GroupId-CA-Persona-Internals'
+$policy.Conditions.Users.ExcludeGroups = $config.'GroupId-CA-Persona-Internals-DataProtection-Exclusions'
+$policy.Conditions.Users.ExcludeUsers = $config.'UserId-BreakGlassAccounts'
 $policy.Conditions.Applications.IncludeApplications = 'Office365'
 $policy.Conditions.ClientAppTypes = 'all'
 $policy.Conditions.Platforms.IncludePlatforms = @('android', 'iOS')
