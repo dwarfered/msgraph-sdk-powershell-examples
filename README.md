@@ -106,7 +106,7 @@ Based upon the excellent [Microsoft Learn: Conditional Access architecture and p
 #### [Internals-DataProtection-O365-MobileDevices-ApprovedAppsAndAppProtection](/identity/conditional%20access/templates/Internals-DataProtection-O365-MobileDevices-ApprovedAppsAndAppProtection.ps1)
 > Internals accessing Office 365 via mobile devices must use Approved Apps or App Protection Policies.
 #### [Internals-DataProtection-O365-UnmanagedDevice-AppEnforcedRestrictions](/identity/conditional%20access/templates/Internals-DataProtection-O365-UnmanagedDevice-AppEnforcedRestrictions.ps1)
-> Internals accessing Office 365 on unmanaged devices must use App Enforced Restrictions.
+> Internals accessing Office 365 on unmanaged devices must use App Enforced Restrictions. These (defined in SharePoint and Exchnage) may limit the user experience.
 #### [Internals-IdentityProtection-AllApps-HighSignInRisk-MFA](/identity/conditional%20access/templates/Internals-IdentityProtection-AllApps-HighSignInRisk-MFA.ps1)
 > Internals with High Sign-In Risk must perform MFA.
 #### [Internals-IdentityProtection-AllApps-HighUserRisk-MFAandPasswordChange](/identity/conditional%20access/templates/Internals-IdentityProtection-AllApps-HighUserRisk-MFAandPasswordChange.ps1)
@@ -114,7 +114,7 @@ Based upon the excellent [Microsoft Learn: Conditional Access architecture and p
 #### [Internals-IdentityProtection-AllApps-LegacyAuthenticationClients-Block](/identity/conditional%20access/templates/Internals-IdentityProtection-AllApps-LegacyAuthenticationClients-Block.ps1)
 > Internals blocked from legacy authentication.
 #### [Internals-IdentityProtection-RegisterSecurityInfo-BYODOrUntrustedLocation-MFA](/identity/conditional%20access/templates/Internals-IdentityProtection-RegisterSecurityInfo-BYODOrUntrustedLocation-MFA.ps1)
-> Internals blocked from registering seurity information (MFA) when on a BYOD device or in an untrusted Named Location.
+> Internals blocked from registering security information (MFA) when on a BYOD device or in an untrusted Named Location.
 
 ## Red Team
 ### [Finding Global Administrators](/red-team/Finding%20Global%20Administrators.ps1)
