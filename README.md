@@ -7,6 +7,10 @@ Identity and Access Management of Entra ID (Azure AD) via the PowerShell SDK for
 ```powershell
 Install-Module Microsoft.Graph -AllowClobber -Force
 ```
+Optionally, also install:
+```powershell
+Install-Module Microsoft.Graph.Beta -AllowClobber -Force
+```
 
 ## Connect to Microsoft Graph
 
