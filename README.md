@@ -109,5 +109,7 @@ Based upon the excellent [Microsoft Learn: Conditional Access architecture and p
 > Internals blocked from registering seurity information (MFA) when on a BYOD device or in an untrusted Named Location.
 
 ## Red Team
-- [Finding Global Administrators](/red-team/Finding%20Global%20Administrators.ps1)
-- [Finding Single Page Applications with Passwords](/red-team/Finding%20SPAs%20with%20Passwords.ps1)
+### [Finding Global Administrators](/red-team/Finding%20Global%20Administrators.ps1)
+> Find accounts with the Global Administrator role using an access token acquired for the Azure Portal (Entra).
+### [Finding Single Page Applications with Passwords](/red-team/Finding%20SPAs%20with%20Passwords.ps1)
+> Find Application Registrations for Single Page Applications that contain secrets.
