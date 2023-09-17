@@ -17,7 +17,7 @@ $ErrorActionPreference = 'stop'
 
 $requiredScopes = @('Application.Read.All')
 $currentScopes = (Get-MgContext).Scopes
-if ($currentScopes -match ([string]::Join('|', $requiredScopes)).Count -ne $requiredScopes.Count) {
+if (($currentScopes -match ([string]::Join('|', $requiredScopes))).Count -ne $requiredScopes.Count) {
     Connect-MgGraph -Scopes $requiredScopes | Out-Null
 }
 
