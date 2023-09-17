@@ -95,15 +95,15 @@ Based upon the excellent [Microsoft Learn: Conditional Access architecture and p
 #### [Internals-BaseProtection-AllApps-MFAorCompliantDeviceOrDomainJoined](/identity/conditional%20access/templates/Internals-BaseProtection-AllApps-MFAorCompliantDeviceOrDomainJoined.ps1)
 > Internals must perform MFA or be using a compliant device OR be using a domain joined device.
 #### [Internals-DataProtection-O365-MobileDevices-ApprovedAppsAndAppProtection](/identity/conditional%20access/templates/Internals-DataProtection-O365-MobileDevices-ApprovedAppsAndAppProtection.ps1)
-> Internals accessing Office 365 via mobile devices must use Approved Apps and apply App Protection Policies.
+> Internals accessing Office 365 via mobile devices must use Approved Apps and App Protection Policies.
 #### [Internals-DataProtection-O365-UnmanagedDevice-AppEnforcedRestrictions](/identity/conditional%20access/templates/Internals-DataProtection-O365-UnmanagedDevice-AppEnforcedRestrictions.ps1)
-> Internals accessing Office 365 on unmanaged devices must use AppEnforcedRestrictions.
+> Internals accessing Office 365 on unmanaged devices must use App Enforced Restrictions.
 #### [Internals-IdentityProtection-AllApps-HighSignInRisk-MFA](/identity/conditional%20access/templates/Internals-IdentityProtection-AllApps-HighSignInRisk-MFA.ps1)
 > Internals with High Sign-In Risk must perform MFA.
 #### [Internals-IdentityProtection-AllApps-HighUserRisk-MFAandPasswordChange](/identity/conditional%20access/templates/Internals-IdentityProtection-AllApps-HighUserRisk-MFAandPasswordChange.ps1)
 > Internals with High User Risk must perform MFA and change their password.
 #### [Internals-IdentityProtection-AllApps-LegacyAuthenticationClients-Block](/identity/conditional%20access/templates/Internals-IdentityProtection-AllApps-LegacyAuthenticationClients-Block.ps1)
-> Internals blocked from legacy authentication
+> Internals blocked from legacy authentication.
 #### [Internals-IdentityProtection-RegisterSecurityInfo-BYODOrUntrustedLocation-MFA](/identity/conditional%20access/templates/Internals-IdentityProtection-RegisterSecurityInfo-BYODOrUntrustedLocation-MFA.ps1)
 > Internals blocked from registering seurity information (MFA) when on a BYOD device or in an untrusted Named Location.
 
