@@ -80,7 +80,7 @@ foreach ($application in $applications) {
 }
 
 $appCredentials | Sort-Object EndDateTime 
-| Select-Object AppDisplayName, AppId, Kind, ExpiryStatus,
+| Select-Object AppDisplayName, AppId, KeyId, Kind, ExpiryStatus,
 @{
     Name       = 'ExpiryDateTime'; 
     Expression = { $_.EndDateTime.ToLocalTime(); }
