@@ -25,13 +25,21 @@ $params = @{
     'All'      = $true;
     'Filter'   = "accountEnabled eq true and preferredTokenSigningKeyEndDateTime ge 2021-01-02T12:00:00Z";
     'PageSize' = '999';
-    'Select'   = 'preferredTokenSigningKeyEndDateTime,appDisplayName'
+    'Select'   = 'preferredTokenSigningKeyEndDateTime,appDisplayName,id'
 }
 
 $samlPrincipals = Get-MgBetaServicePrincipal @params
 
 $samlPrincipals = $samlPrincipals | Sort-Object PreferredTokenSigningKeyEndDateTime
-| Select-Object AppDisplayName, 
+| Select-Object AppDisplayName,
+@{
+    Name       = 'PrincipalId'; 
+    Expression = { $_.Id; }
+},
+@{
+    Name       = 'Kind'; 
+    Expression = { 'SAML Token Signing'; }
+},
 @{
     Name       = 'Expiry Date Time'; 
     Expression = { $_.PreferredTokenSigningKeyEndDateTime.ToLocalTime(); }
@@ -53,4 +61,4 @@ $samlPrincipals = $samlPrincipals | Sort-Object PreferredTokenSigningKeyEndDateT
     }
 }
 
-$samlPrincipals | Format-Table
+$samlPrincipals | Format-List
