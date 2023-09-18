@@ -38,7 +38,10 @@ $policy.GrantControls.BuiltInControls = 'mfa'
 
 $requiredScopes = @('Policy.Read.All', 'Policy.ReadWrite.ConditionalAccess', 'Application.Read.All')
 $currentScopes = (Get-MgContext).Scopes
-if (($currentScopes -match ([string]::Join('|', $requiredScopes))).Count -ne $requiredScopes.Count) {
+
+if ($null -eq $currentScopes) {
+    Connect-MgGraph -Scopes $requiredScopes | Out-Null
+} elseif (($currentScopes -match ([string]::Join('|', $requiredScopes))).Count -ne $requiredScopes.Count) {
     Connect-MgGraph -Scopes $requiredScopes | Out-Null
 }
 
