@@ -86,3 +86,13 @@ $appCredentials | Sort-Object EndDateTime
 }
 | Format-List
 
+<# Or for those expired and near expiry #>
+
+# $appCredentials | Sort-Object EndDateTime
+# | Where-Object {$_.ExpiryStatus -ne 'Current'}
+# | Select-Object AppDisplayName, AppId, KeyId, Kind, ExpiryStatus,
+# @{
+#     Name       = 'ExpiryDateTime'; 
+#     Expression = { $_.EndDateTime.ToLocalTime(); }
+# }
+# | Format-List
