@@ -82,5 +82,5 @@ $appCredentials | Sort-Object EndDateTime
     Name       = 'Expiry Date Time'; 
     Expression = { $_.EndDateTime.ToLocalTime(); }
 }
-| Format-Table
+| Format-List
 
