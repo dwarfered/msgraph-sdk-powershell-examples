@@ -79,7 +79,7 @@ foreach ($application in $applications) {
 $appCredentials | Sort-Object EndDateTime 
 | Select-Object AppDisplayName, AppId, Kind, ExpiryStatus,
 @{
-    Name       = 'Expiry Date Time'; 
+    Name       = 'ExpiryDateTime'; 
     Expression = { $_.EndDateTime.ToLocalTime(); }
 }
 | Format-List
