@@ -91,6 +91,8 @@ Based upon the excellent [Microsoft Learn: Conditional Access architecture and p
 
 <small>*This collection is a work in progress*.</small>
 
+To deploy, simply create the persona groups in the Azure AD tenant and copy their object ids to the 'config.json' file, together with any break-glass user object ids.
+
 #### [Guests-BaseProtection-AllApps-MFA](/identity/conditional%20access/templates/Guests-BaseProtection-AllApps-MFA.ps1)
 > Guests must perform MFA.
 #### [Guests-DataProtection-AllApps-SignInSessionPolicy](/identity/conditional%20access/templates/Guests-DataProtection-AllApps-SignInSessionPolicy.ps1)
