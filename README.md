@@ -2,7 +2,7 @@
 
 Identity and Access Management of Entra ID (Azure AD) via the PowerShell SDK for Microsoft Graph.
 
-## Pre-requisite
+## Prerequisite
 [PowerShell SDK for Microsoft Graph](https://github.com/microsoftgraph/msgraph-sdk-powershell)
 ```powershell
 Install-Module Microsoft.Graph -AllowClobber -Force
@@ -92,6 +92,8 @@ Based upon the excellent [Microsoft Learn: Conditional Access architecture and p
 <small>*This collection is a work in progress*.</small>
 
 To deploy, simply create the persona groups in the Azure AD tenant and copy their object ids to the 'config.json' file, together with any break-glass user object ids.
+
+Conditional Access Policies as code.
 
 #### [Guests-BaseProtection-AllApps-MFA](/identity/conditional%20access/templates/Guests-BaseProtection-AllApps-MFA.ps1)
 > Guests must perform MFA.
