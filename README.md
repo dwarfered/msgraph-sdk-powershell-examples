@@ -31,6 +31,7 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 
 ## Audit Logs
 ### [With Authentication Method Mismatch](/auditLogs/signIns/With%20Authentication%20Method%20Mismatch.ps1)
+> This occurs when the authentication method by which the user authenticated with the service doesn't match the requested authentication method defined by the provider.
 
 ## Applications
 ### [Where Disabled or Invalid](/applications/Where%20Disabled%20or%20Invalid.ps1)
