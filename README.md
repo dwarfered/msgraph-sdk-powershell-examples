@@ -29,6 +29,9 @@ Using an Application Registration (Platform: Mobile and desktop applications, re
 Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 ```
 
+## Audit Logs
+### [With Authentication Method Mismatch](/auditLogs/signIns/With%20Authentication%20Method%20Mismatch.ps1)
+
 ## Applications
 ### [Where Disabled or Invalid](/applications/Where%20Disabled%20or%20Invalid.ps1)
 > Find Application Registrations that have been disabled or are missing their Enterprise Application instance.
