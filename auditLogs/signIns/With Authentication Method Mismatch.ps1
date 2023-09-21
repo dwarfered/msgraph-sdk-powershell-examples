@@ -9,6 +9,16 @@ $ErrorActionPreference = 'stop'
 
         This occurs when the authentication method by which the user authenticated with the service doesn't match
         the requested authentication method defined by the provider.
+
+        Example:
+        AADSTS75011: Authentication method 'X509, MultiFactor' by which the user authenticated with the service
+        doesn't match requested authentication method 'Password, ProtectedTransport'. 
+        Contact the <APP NAME> application owner.
+ 
+        Solution:
+        The RequestedAuthnContext is an optional value and can be removed from their configuration.
+        Alternatively set urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified on the SAML SP.
+
          
     .NOTES
         AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
