@@ -47,7 +47,7 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 ### [Add Microsoft Graph App Role Assignment](/servicePrincipals/Add%20Microsoft%20Graph%20App%20Roles.ps1)
 > Adding a Microsoft Graph App Role to a Service Principal (Application/Managed Identity). ie. 'User.Read.All'
 ### [With AppRoles Assigned from AppId](/servicePrincipals/With%20AppRoles%20Assigned%20From%20AppId.ps1)
-> Retrieve Application Roles assigned to Service Principals using an AppId. Find all Enterprise Applications with the ability to consumer services in Microsoft Graph, AAD Graph and O365 API without a signed in user.
+> Find all Enterprise Applications with the ability to consumer services in Microsoft Graph, AAD Graph and O365 API without a signed in user.
 ### [With SAML Expiry Status](/servicePrincipals/With%20SAML%20Expiry%20Status.ps1)
 > Find SAML SSO expiry status on enabled Enterprise Applications.
 
