@@ -72,6 +72,8 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 > Find the last sign-in activity of an account.
 ### [Members](users/Members.ps1)
 > Find all Member accounts.
+### [Password Change](/users/Password%20Change.ps1)
+> Make a cloud or on-premises user change their password on their next sign-in to Azure. This cannot be used in conjunction with Passthrough Authentication.
 ### [Where Assigned Licenses](users/With%20Assigned%20Licenses.ps1)
 > Find all accounts assigned licenses.
 ### [Where Email Address Is Value](users/Where%20Email%20Address%20Is%20Value.ps1)
