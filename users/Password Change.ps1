@@ -12,6 +12,8 @@ $ErrorActionPreference = 'stop'
         UPDATED: 01-10-2023
 
         https://learn.microsoft.com/en-us/graph/api/resources/users?view=graph-rest-1.0#who-can-perform-sensitive-actions
+
+        forceChangePasswordNextSignIn cannot be used in conjunction with Passthrough Authentication.
 #>
 
 $requiredScopes = @('Directory.AccessAsUser.All')
@@ -29,8 +31,6 @@ $params = @{
 	}
 }
 
-$userId = ''
+$userId = $null
 
 Update-MgUser -UserId $userId -BodyParameter $params
-# Unfinished
-# Needs further testing, on-premises interaction, sspr inclusion/exclusion impact
