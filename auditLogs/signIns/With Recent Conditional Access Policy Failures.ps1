@@ -80,7 +80,6 @@ foreach ($signIn in $signIns) {
 
             $detail = [PSCustomObject]@{
                 PolicyName   = $failedPolicy.DisplayName
-                FailureCount = 1
                 FailedSignIns = @($signInDetail)
             }
             $capFailedSignIns.Add($failedPolicy.Id, $detail)
@@ -94,9 +93,11 @@ foreach ($key in $capFailedSignIns.Keys) {
     $item = $capFailedSignIns[$key]
     Write-Output "Policy Name: $($item.PolicyName)"
     Write-Output "Policy Id: $($key)"
-    Write-Output "Failed Signins: $($item.failedSignIns.Count)"
+    Write-Output "Failed SignIns: $($item.failedSignIns.Count)"
+    Write-Output "Unique User Failed SignIns: $(($item.failedSignIns | Select-Object -Unique UserPrincipalName).Count)"
     Write-Output ""
 }
 
-Write-Host -ForegroundColor Yellow "For the detail of these signins type `$capFailedSignIns['<PolicyId>'].FailedSignIns"
+Write-Host -ForegroundColor Yellow "For the detail of these signins use:"
+Write-Host -ForegroundColor Yellow "`$capFailedSignIns['<PolicyId>'].FailedSignIns"
 Write-Host ''
