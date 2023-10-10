@@ -54,10 +54,22 @@ while ($true) {
 
     # Graph appears to not respect seconds, so a further check here is used.
     $signIns = Get-MgAuditLogSignIn @params
-    $signIns.Count
+    Write-Host -ForegroundColor Yellow "Results: $($signIns.Count)"
 
-    if ($signIns) {
-        $sinceAsStr = ($signIns | Select-Object -First 1).CreatedDateTime.ToString('yyyy-MM-ddTHH:mm:ssZ')
+    # Graph appears to not respect seconds in the filter, so a further check here is used.
+    $signIns = $signIns | Where-Object {$_.CreatedDateTime -gt $since}
+    $signIns = $signIns | Sort-Object CreatedDateTime
+    Write-Host -ForegroundColor Yellow "Results to Process: $($signIns.Count)"
+
+    if ($signIns.Count -ne 0 ) {
+
+        "Last $(($signIns | Select-Object -Last 1).CreatedDateTime.ToString('yyyy-MM-ddTHH:mm:ssZ'))"
+        "First $(($signIns | Select-Object -First 1).CreatedDateTime.ToString('yyyy-MM-ddTHH:mm:ssZ'))"
+
+        $sinceAsStr = ($signIns | Select-Object -Last 1).CreatedDateTime.ToString('yyyy-MM-ddTHH:mm:ssZ')
+        $since = ($signIns | Select-Object -Last 1).CreatedDateTime
+        if ($null -eq $sinceAsStr) {'problem'}
+        $sinceAsStr
     }
 
     foreach ($signIn in $signIns) {
