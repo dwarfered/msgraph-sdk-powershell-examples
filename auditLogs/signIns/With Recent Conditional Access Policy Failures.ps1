@@ -37,25 +37,42 @@ elseif (($currentScopes -match ([string]::Join('|', $requiredScopes))).Count -ne
     Connect-MgGraph -Scopes $requiredScopes | Out-Null
 }
 
-$since = (Get-Date).AddHours(-1).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
+$caPolicySignInFailures = @{}
 
-$params = @{
-    'All'      = $true;
-    'Filter'   = "conditionalAccessStatus eq 'failure' and createdDateTime ge $since";
-    'PageSize' = '999';
-}
+$since = (Get-MgAuditLogSignIn -Top 1).CreatedDateTime
+$sinceAsStr = $since.ToString('yyyy-MM-ddTHH:mm:ssZ')
+$fileOutputSuffix = $since.ToLocalTime().ToString('yyyy-MM-ddTHH-mm-ss')
 
-$signins = Get-MgAuditLogSignIn @params
 
-$capFailedSignIns = @{}
 
-foreach ($signIn in $signIns) {
-    
-    $failedPolicies = $signIn.AppliedConditionalAccessPolicies 
-    | Where-Object { $_.Result -eq 'failure' }
+while ($true) {
+    $params = @{
+        'All'      = $true;
+        'Filter'   = "conditionalAccessStatus eq 'failure' and isInteractive eq true and createdDateTime gt $sinceAsStr";
+        'PageSize' = '999';
+    }
 
-    foreach ($failedPolicy in $failedPolicies) {
-        if ($capFailedSignIns.ContainsKey($failedPolicy.Id)) {
+    # Graph appears to not respect seconds, so a further check here is used.
+    $signIns = Get-MgAuditLogSignIn @params
+    Clear-Host
+    # Write-Host -ForegroundColor Yellow "Results: $($signIns.Count)"
+
+    # Graph appears to not respect seconds in the filter, so a further check here is used.
+    $signIns = $signIns | Where-Object {$_.CreatedDateTime -gt $since}
+    $signIns = $signIns | Sort-Object CreatedDateTime
+    # Write-Host -ForegroundColor Yellow "Results to Process: $($signIns.Count)"
+
+    if ($signIns.Count -ne 0 ) {
+        $sinceAsStr = ($signIns | Select-Object -Last 1).CreatedDateTime.ToString('yyyy-MM-ddTHH:mm:ssZ')
+        $since = ($signIns | Select-Object -Last 1).CreatedDateTime
+    }
+
+    foreach ($signIn in $signIns) {
+        $failedPolicies = $signIn.AppliedConditionalAccessPolicies 
+        | Where-Object { $_.Result -eq 'failure' }
+
+        foreach ($failedPolicy in $failedPolicies) {
+
             $signInDetail = [PSCustomObject]@{
                 UserPrincipalName = $signIn.UserPrincipalName
                 AppDisplayName    = $signIn.AppDisplayName
@@ -65,39 +82,43 @@ foreach ($signIn in $signIns) {
                 AdditionalDetails = $signIn.Status.AdditionalDetails
             }
 
-            $capFailedSignIns[$failedPolicy.Id].FailedSignIns += $signInDetail
+            if ($caPolicySignInFailures.ContainsKey($failedPolicy.Id)) {
+                $item = $caPolicySignInFailures[$failedPolicy.Id]
+                $item.FailureCount +=1
+                $item.FailureSignIns += $signInDetail
 
-        }
-        else {
-            $signInDetail = [PSCustomObject]@{
-                UserPrincipalName = $signIn.UserPrincipalName
-                AppDisplayName    = $signIn.AppDisplayName
-                CreatedDateTime   = $signIn.CreatedDateTime
-                ErrorCode         = $signIn.Status.ErrorCode
-                FailureReason     = $signIn.Status.FailureReason
-                AdditionalDetails = $signIn.Status.AdditionalDetails
+                $sanitisedFilename = $failedPolicy.DisplayName.Replace('/', '')
+                $outFile = "./$sanitisedFilename-$fileOutputSuffix.csv"
+                $signInDetail 
+                | ConvertTo-Csv -NoTypeInformation 
+                | Select-Object -Skip 1 
+                | Out-File $outFile -Append
+
             }
+            else {
+                $detail = [PSCustomObject]@{
+                    PolicyName = $failedPolicy.DisplayName
+                    PolicyId   = $failedPolicy.Id
+                    FailureCount      = 1
+                    FailureSignIns    = @($signInDetail)
+                }
+                $caPolicySignInFailures.Add($failedPolicy.Id, $detail)
 
-            $detail = [PSCustomObject]@{
-                PolicyName   = $failedPolicy.DisplayName
-                FailedSignIns = @($signInDetail)
+                $sanitisedFilename = $failedPolicy.DisplayName.Replace('/', '')
+                $outFile = "./$sanitisedFilename-$fileOutputSuffix.csv"
+                $signInDetail 
+                | ConvertTo-Csv -NoTypeInformation 
+                | Out-File $outFile
             }
-            $capFailedSignIns.Add($failedPolicy.Id, $detail)
-
         }
     }
 
-}
+    $caPolicySignInFailures.GetEnumerator() 
+    | Select-Object -ExpandProperty Value 
+    | Select-Object PolicyName, FailureCount | Format-Table
 
-foreach ($key in $capFailedSignIns.Keys) {
-    $item = $capFailedSignIns[$key]
-    Write-Output "Policy Name: $($item.PolicyName)"
-    Write-Output "Policy Id: $($key)"
-    Write-Output "Failed SignIns: $($item.failedSignIns.Count)"
-    Write-Output "Unique User Failed SignIns: $(($item.failedSignIns | Select-Object -Unique UserPrincipalName).Count)"
-    Write-Output ""
-}
+    Write-Host -ForegroundColor Yellow "Refreshing in 5 seconds. To stop press CTRL + C"
 
-Write-Host -ForegroundColor Yellow "For the detail of these signins use:"
-Write-Host -ForegroundColor Yellow "`$capFailedSignIns['<PolicyId>'].FailedSignIns"
-Write-Host ''
+    Start-Sleep -Seconds 5
+
+}
