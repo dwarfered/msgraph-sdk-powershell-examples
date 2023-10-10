@@ -39,24 +39,25 @@ elseif (($currentScopes -match ([string]::Join('|', $requiredScopes))).Count -ne
 
 $caPolicySignInFailures = @{}
 
-$startDateTime = (Get-MgAuditLogSignIn -Top 1).CreatedDateTime
-$since = $startDateTime.ToString('yyyy-MM-ddTHH:mm:ssZ')
-$fileOutputSuffix = $startDateTime.ToLocalTime().ToString('yyyy-MM-ddTHH-mm-ss')
+$since = (Get-MgAuditLogSignIn -Top 1).CreatedDateTime
+$sinceAsStr = $since.ToString('yyyy-MM-ddTHH:mm:ssZ')
+$fileOutputSuffix = $since.ToLocalTime().ToString('yyyy-MM-ddTHH-mm-ss')
 
 Write-Host -ForegroundColor Yellow "To stop press CTRL + C"
 
 while ($true) {
     $params = @{
         'All'      = $true;
-        'Filter'   = "conditionalAccessStatus eq 'failure' and createdDateTime gt $since";
+        'Filter'   = "conditionalAccessStatus eq 'failure' and isInteractive eq true and createdDateTime gt $sinceAsStr";
         'PageSize' = '999';
     }
 
-    $signins = Get-MgAuditLogSignIn @params
+    # Graph appears to not respect seconds, so a further check here is used.
+    $signIns = Get-MgAuditLogSignIn @params
+    $signIns.Count
 
     if ($signIns) {
-        $signIns = $signIns | Sort-Object CreatedDateTime
-        $since = ($signIns | Select-Object -First 1).CreatedDateTime.ToString('yyyy-MM-ddTHH:mm:ssZ')
+        $sinceAsStr = ($signIns | Select-Object -First 1).CreatedDateTime.ToString('yyyy-MM-ddTHH:mm:ssZ')
     }
 
     foreach ($signIn in $signIns) {
@@ -75,10 +76,11 @@ while ($true) {
             }
 
             if ($caPolicySignInFailures.ContainsKey($failedPolicy.Id)) {
-                $caPolicySignInFailures[$failedPolicy.Id].caPolicySignInFailures += $signInDetail
-                $caPolicySignInFailures[$failedPolicy.Id].caPolicySignInFailuresCount += 1
+                $item = $caPolicySignInFailures[$failedPolicy.Id]
+                $item.FailureCount +=1
+                $item.FailureSignIns += $signInDetail
 
-                $sanitisedFilename = $failedPolicy.DisplayName.Replace('/','')
+                $sanitisedFilename = $failedPolicy.DisplayName.Replace('/', '')
                 $outFile = "./$sanitisedFilename-$fileOutputSuffix.csv"
                 $signInDetail 
                 | ConvertTo-Csv -NoTypeInformation 
@@ -88,14 +90,14 @@ while ($true) {
             }
             else {
                 $detail = [PSCustomObject]@{
-                    PolicyName                  = $failedPolicy.DisplayName
-                    PolicyId                    = $failedPolicy.Id
-                    caPolicySignInFailuresCount = 1
-                    caPolicySignInFailures      = @($signInDetail)
+                    PolicyName = $failedPolicy.DisplayName
+                    PolicyId   = $failedPolicy.Id
+                    FailureCount      = 1
+                    FailureSignIns    = @($signInDetail)
                 }
                 $caPolicySignInFailures.Add($failedPolicy.Id, $detail)
 
-                $sanitisedFilename = $failedPolicy.DisplayName.Replace('/','')
+                $sanitisedFilename = $failedPolicy.DisplayName.Replace('/', '')
                 $outFile = "./$sanitisedFilename-$fileOutputSuffix.csv"
                 $signInDetail 
                 | ConvertTo-Csv -NoTypeInformation 
@@ -106,7 +108,7 @@ while ($true) {
 
     $caPolicySignInFailures.GetEnumerator() 
     | Select-Object -ExpandProperty Value 
-    | Select-Object PolicyName, CAPolicySignInFailuresCount | Format-Table
+    | Select-Object PolicyName, FailureCount | Format-Table
 
     Start-Sleep -Seconds 5
 
