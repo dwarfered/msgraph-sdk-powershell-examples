@@ -80,6 +80,13 @@ while ($true) {
                 ErrorCode         = $signIn.Status.ErrorCode
                 FailureReason     = $signIn.Status.FailureReason
                 AdditionalDetails = $signIn.Status.AdditionalDetails
+                DeviceBrowser = $signIn.DeviceDetail.Browser
+                DeviceId = $signIn.DeviceDetail.DeviceId
+                DeviceDisplayName = $signIn.DeviceDetail.DisplayName
+                DeviceIsCompliant = $signIn.DeviceDetail.IsCompliant
+                DeviceIsManaged = $signIn.DeviceDetail.IsManaged
+                DeviceOperatingSystem = $signIn.DeviceDetail.OperatingSystem
+                DeviceTrustType = $signIn.DeviceDetail.TrustType
             }
 
             if ($caPolicySignInFailures.ContainsKey($failedPolicy.Id)) {
