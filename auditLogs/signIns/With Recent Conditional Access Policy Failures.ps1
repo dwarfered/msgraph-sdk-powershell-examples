@@ -43,8 +43,6 @@ $since = (Get-MgAuditLogSignIn -Top 1).CreatedDateTime
 $sinceAsStr = $since.ToString('yyyy-MM-ddTHH:mm:ssZ')
 $fileOutputSuffix = $since.ToLocalTime().ToString('yyyy-MM-ddTHH-mm-ss')
 
-
-
 while ($true) {
     $params = @{
         'All'      = $true;
@@ -52,7 +50,6 @@ while ($true) {
         'PageSize' = '999';
     }
 
-    # Graph appears to not respect seconds, so a further check here is used.
     $signIns = Get-MgAuditLogSignIn @params
     Clear-Host
     # Write-Host -ForegroundColor Yellow "Results: $($signIns.Count)"
