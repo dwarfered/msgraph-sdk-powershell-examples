@@ -50,7 +50,7 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 > Find all Enterprise Applications with the ability to consumer services in Microsoft Graph, AAD Graph and O365 API without a signed in user.
 ### [With SAML Expiry Status](/servicePrincipals/With%20SAML%20Expiry%20Status.ps1)
 > Find SAML SSO expiry status on enabled Enterprise Applications.
-### [Where Enterprise Application]()
+### [Where Enterprise Application](/servicePrincipals/Where%20Enterprise%20Application.ps1)
 
 ## Azure Automation Account
 ### [Acquire Access Token for Microsoft Graph](/azure-automation-account/Connect%20To%20Microsoft%20Graph.ps1)
