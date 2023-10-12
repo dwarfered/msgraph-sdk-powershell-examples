@@ -33,7 +33,7 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 ### [With Authentication Method Mismatch](/auditLogs/signIns/With%20Authentication%20Method%20Mismatch.ps1)
 > This occurs when the authentication method by which the user authenticated with the service doesn't match the requested authentication method defined by the provider.
 
-## Applications
+## Application Registrations
 ### [Where Disabled or Invalid](/applications/Where%20Disabled%20or%20Invalid.ps1)
 > Find Application Registrations that have been disabled or are missing their Enterprise Application instance.
 ### [With Credentials](/applications/With%20Credentials.ps1)
@@ -50,6 +50,7 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 > Find all Enterprise Applications with the ability to consumer services in Microsoft Graph, AAD Graph and O365 API without a signed in user.
 ### [With SAML Expiry Status](/servicePrincipals/With%20SAML%20Expiry%20Status.ps1)
 > Find SAML SSO expiry status on enabled Enterprise Applications.
+### [Where Enterprise Application]()
 
 ## Azure Automation Account
 ### [Acquire Access Token for Microsoft Graph](/azure-automation-account/Connect%20To%20Microsoft%20Graph.ps1)
