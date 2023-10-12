@@ -25,6 +25,8 @@ $params = @{
     'All'      = $true;
     'Filter'   = "servicePrincipalType eq 'ManagedIdentity'";
     'PageSize' = '999';
+    'ConsistencyLevel' = 'eventual'; 
+    'CountVariable'    = 'principalCount';
 }
 
 $managedIdentities = Get-MgServicePrincipal @params
