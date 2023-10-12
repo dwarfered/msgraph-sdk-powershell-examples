@@ -50,6 +50,8 @@ Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 > Find all Enterprise Applications
 ### [Where Managed Identity](/servicePrincipals/Where%20Managed%20Identity.ps1)
 > Find all Managed Identities
+### [Where Microsoft Application](/servicePrincipals/Where%20Microsoft%20Application.ps1)
+> Find all Microsoft Applications
 ### [With AppRoles Assigned from AppId](/servicePrincipals/With%20AppRoles%20Assigned%20From%20AppId.ps1)
 > Find all Enterprise Applications with the ability to consumer services in Microsoft Graph, AAD Graph and O365 API without a signed in user.
 ### [With SAML Expiry Status](/servicePrincipals/With%20SAML%20Expiry%20Status.ps1)
