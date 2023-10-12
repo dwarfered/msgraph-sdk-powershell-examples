@@ -141,3 +141,9 @@ Conditional Access Policies as code.
 > Find accounts with the Global Administrator role using an access token acquired for the Azure Portal (Entra).
 ### [Finding Single Page Applications with Passwords](/red-team/Finding%20SPAs%20with%20Passwords.ps1)
 > Find Application Registrations for Single Page Applications that contain secrets.
+
+## Miscellaneous
+### [Client Credentials Flow](/native-powershell/Client%20Credentials%20Flow.ps1)
+> Obtaining an Access Token for Microsoft Graph using the Application Client Credentials grant using native PowerShell and the Invoke-RestMethod cmdlet.
+### [Device Code Flow](/native-powershell/Device%20Code%20Flow.ps1)
+>  Obtaining an Access Token for Microsoft Graph using the Device Code grant and PowerShell with the Invoke-RestMethod cmdlet.
