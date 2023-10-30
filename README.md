@@ -29,6 +29,19 @@ Using an Application Registration (Platform: Mobile and desktop applications, re
 Connect-MgGraph -ClientId 'abc..' -TenantId 'abc..'
 ```
 
+Using a ClientId and Secret (Password)
+```powershell
+$tenantId = ''
+$clientId = ''
+$secret = ConvertTo-SecureString '' -AsPlainText -Force
+$secretCredential = New-Object System.Management.Automation.PSCredential ($clientId, $secret)
+$params = @{
+    'SecretCredential' = $secretCredential
+    'TenantId'         = $tenantId
+}
+Connect-MgGraph @params
+```
+
 ## Audit Logs
 ### [With Authentication Method Mismatch](/auditLogs/signIns/With%20Authentication%20Method%20Mismatch.ps1)
 > This occurs when the authentication method by which the user authenticated with the service doesn't match the requested authentication method defined by the provider.
