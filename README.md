@@ -110,44 +110,7 @@ Connect-MgGraph @params
 
 ### Templates
 
-Zero Trust Persona-based Azure AD Conditional Access Policies
-
-<img src="images/ca-policies.png" width="800">
-
-Based upon the excellent [Microsoft Learn: Conditional Access architecture and personas](https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-architecture) and [Framework and policies](https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-framework) pages authored by [Claus Jespersen](https://www.linkedin.com/in/claus-jespersen-25b0422/).
-
-> Note that for clarity, I have deviated to the following naming convention: <br> **Persona**-**PolicyType**-**App/User Action**-**Condition**-**AccessControl**<br>
-
-<small>*This collection is a work in progress*.</small>
-
-To deploy, simply create the persona groups in the Azure AD tenant and copy their object ids to the 'config.json' file, together with any break-glass user object ids.
-
-Conditional Access Policies as code.
-
-#### [Guests-BaseProtection-AllApps-MFA](/identity/conditional%20access/templates/Guests-BaseProtection-AllApps-MFA.ps1)
-> Guests must perform MFA.
-#### [Guests-DataProtection-AllApps-SignInSessionPolicy](/identity/conditional%20access/templates/Guests-DataProtection-AllApps-SignInSessionPolicy.ps1)
-> Guests sign-in for a limited time.
-#### [Guests-IdentityProtection-AllApps-LegacyAuthenticationClients-Block](/identity/conditional%20access/templates/Guests-IdentityProtection-AllApps-LegacyAuthenticationClients-Block.ps1)
-> Guests blocked from legacy authentication.
-#### [Guests-IdentityProtection-AllApps-MediumOrHighRisk-MFA](/identity/conditional%20access/templates/Guests-IdentityProtection-AllApps-MediumOrHighRisk-MFA.ps1)
-> Guests with Medium or High Risk always perform MFA.
-#### [Internals-AttackSurfaceReduction-AllApps-UnknownPlatforms-Block](/identity/conditional%20access/templates/Internals-AttackSurfaceReduction-AllApps-UnknownPlatforms-Block.ps1)
-> Internals must use known device platforms.
-#### [Internals-BaseProtection-AllApps-MFAorCompliantDeviceOrDomainJoined](/identity/conditional%20access/templates/Internals-BaseProtection-AllApps-MFAorCompliantDeviceOrDomainJoined.ps1)
-> Internals must perform MFA or be using a compliant device OR be using a domain joined device.
-#### [Internals-DataProtection-O365-MobileDevices-ApprovedAppsAndAppProtection](/identity/conditional%20access/templates/Internals-DataProtection-O365-MobileDevices-ApprovedAppsAndAppProtection.ps1)
-> Internals accessing Office 365 via mobile devices must use Approved Apps or App Protection Policies.
-#### [Internals-DataProtection-O365-UnmanagedDevice-AppEnforcedRestrictions](/identity/conditional%20access/templates/Internals-DataProtection-O365-UnmanagedDevice-AppEnforcedRestrictions.ps1)
-> Internals accessing Office 365 on unmanaged devices must use App Enforced Restrictions. These (defined within SharePoint and Exchange) may limit the user experience.
-#### [Internals-IdentityProtection-AllApps-HighSignInRisk-MFA](/identity/conditional%20access/templates/Internals-IdentityProtection-AllApps-HighSignInRisk-MFA.ps1)
-> Internals with High Sign-In Risk must perform MFA.
-#### [Internals-IdentityProtection-AllApps-HighUserRisk-MFAandPasswordChange](/identity/conditional%20access/templates/Internals-IdentityProtection-AllApps-HighUserRisk-MFAandPasswordChange.ps1)
-> Internals with High User Risk must perform MFA and change their password.
-#### [Internals-IdentityProtection-AllApps-LegacyAuthenticationClients-Block](/identity/conditional%20access/templates/Internals-IdentityProtection-AllApps-LegacyAuthenticationClients-Block.ps1)
-> Internals blocked from legacy authentication.
-#### [Internals-IdentityProtection-RegisterSecurityInfo-BYODOrUntrustedLocation-MFA](/identity/conditional%20access/templates/Internals-IdentityProtection-RegisterSecurityInfo-BYODOrUntrustedLocation-MFA.ps1)
-> Internals blocked from registering security information (MFA) when on a BYOD device or in an untrusted Named Location.
+[Zero Trust Persona-based Azure AD Conditional Access Policies](https://github.com/dwarfered/ConditionalAccessforZeroTrust)
 
 ## Red Team
 ### [Finding Global Administrators](/red-team/Finding%20Global%20Administrators.ps1)
