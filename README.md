@@ -53,7 +53,7 @@ Connect-MgGraph @params
 > Find Application Registrations that have been disabled or are missing their Enterprise Application instance (Service Principal).
 ### [Credentials](/applications/credentials.ps1)
 > Find Application Registrations with Password or Certificate Credentials.
-### [With Certificate or Secret Expiry Status](/applications/With%20Certificate%20or%20Secret%20Expiry%20Status.ps1)
+### [Credentials Expired](/applications/credentials-expired.ps1)
 > Find Application Registration Certificate or Secret expiry status.
 ### [Without Owners](/applications//Without%20Owners.ps1)
 > Find Application Registrations without assigned Owners.
