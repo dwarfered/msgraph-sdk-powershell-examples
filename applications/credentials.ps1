@@ -1,5 +1,5 @@
-#Requires -Modules @{ ModuleName="Microsoft.Graph.Authentication"; ModuleVersion="2.3.0" }
-#Requires -Modules @{ ModuleName="Microsoft.Graph.Applications"; ModuleVersion="2.3.0" }
+#Requires -Modules @{ ModuleName="Microsoft.Graph.Authentication"; ModuleVersion="2.13.1" }
+#Requires -Modules @{ ModuleName="Microsoft.Graph.Applications"; ModuleVersion="2.13.1" }
 
 $ErrorActionPreference = 'stop'
 
@@ -11,7 +11,7 @@ $ErrorActionPreference = 'stop'
     
     .NOTES
         AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
-        UPDATED: 16-09-2023
+        UPDATED: 15-02-2024
 #>
 
 $requiredScopes = @('Application.Read.All')

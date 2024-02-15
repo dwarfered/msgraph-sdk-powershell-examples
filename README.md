@@ -51,7 +51,7 @@ Connect-MgGraph @params
 ## Application Registrations
 ### [Disabled or Invalid](/applications/disabled-or-invalid.ps1)
 > Find Application Registrations that have been disabled or are missing their Enterprise Application instance (Service Principal).
-### [With Credentials](/applications/With%20Credentials.ps1)
+### [Credentials](/applications/credentials.ps1)
 > Find Application Registrations with Password or Certificate Credentials.
 ### [With Certificate or Secret Expiry Status](/applications/With%20Certificate%20or%20Secret%20Expiry%20Status.ps1)
 > Find Application Registration Certificate or Secret expiry status.
