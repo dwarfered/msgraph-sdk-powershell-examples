@@ -55,7 +55,7 @@ Connect-MgGraph @params
 > Find Application Registrations with Password or Certificate Credentials.
 ### [Credentials Expired](/applications/credentials-expired.ps1)
 > Find Application Registration Certificate or Secret expiry status.
-### [Without Owners](/applications//Without%20Owners.ps1)
+### [Without Owners](/applications/without-owners.ps1)
 > Find Application Registrations without assigned Owners.
 
 ## Service Principals
