@@ -1,5 +1,5 @@
-#Requires -Modules @{ ModuleName="Microsoft.Graph.Authentication"; ModuleVersion="2.3.0" }
-#Requires -Modules @{ ModuleName="Microsoft.Graph.Reports"; ModuleVersion="2.3.0" }
+#Requires -Modules @{ ModuleName="Microsoft.Graph.Authentication"; ModuleVersion="2.13.1" }
+#Requires -Modules @{ ModuleName="Microsoft.Graph.Reports"; ModuleVersion="2.13.1" }
 
 $ErrorActionPreference = 'stop'
 
@@ -8,7 +8,7 @@ $ErrorActionPreference = 'stop'
         Finding authentication method mismatch errors.
 
         This occurs when the authentication method by which the user authenticated with the service doesn't match
-        the requested authentication method defined by the provider.
+        the requested authentication method defined by the provider (ie. for SAML providers)
 
         Example:
         AADSTS75011: Authentication method 'X509, MultiFactor' by which the user authenticated with the service
@@ -22,7 +22,7 @@ $ErrorActionPreference = 'stop'
          
     .NOTES
         AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
-        UPDATED: 20-09-2023
+        UPDATED: 15-02-2024
 
         https://learn.microsoft.com/en-us/troubleshoot/azure/active-directory/error-code-aadsts75011-auth-method-mismatch
 

@@ -43,8 +43,8 @@ Connect-MgGraph @params
 ```
 
 ## Audit Logs
-### [With Authentication Method Mismatch](/auditLogs/signIns/With%20Authentication%20Method%20Mismatch.ps1)
-> This occurs when the authentication method by which the user authenticated with the service doesn't match the requested authentication method defined by the provider.
+### [Authentication Method Mismatch](/auditLogs/signIns/authentication-method-mismatch.ps1)
+> This Entra ID error occurs when the authentication method by which the user authenticated with the service doesn't match the requested authentication method defined by the provider.
 
 ## Application Registrations
 ### [Where Disabled or Invalid](/applications/Where%20Disabled%20or%20Invalid.ps1)
