@@ -1,18 +1,18 @@
-#Requires -Modules @{ ModuleName="Microsoft.Graph.Authentication"; ModuleVersion="2.3.0" }
-#Requires -Modules @{ ModuleName="Microsoft.Graph.Applications"; ModuleVersion="2.3.0" }
+#Requires -Modules @{ ModuleName="Microsoft.Graph.Authentication"; ModuleVersion="2.13.1" }
+#Requires -Modules @{ ModuleName="Microsoft.Graph.Applications"; ModuleVersion="2.13.1" }
 
 $ErrorActionPreference = 'stop'
 
 <#
     .SYNOPSIS
-        Find all first-party disabled applications and those that have had their 
+        Find all disabled application registrations and those that have had their 
         Enterprise Application (Service Principal) deleted.
 
     .DESCRIPTION
     
     .NOTES
         AUTHOR: https://github.com/dwarfered/msgraph-sdk-powershell-examples
-        UPDATED: 16-09-2023
+        UPDATED: 15-02-2024
 #>
 
 $requiredScopes = @('Application.Read.All')
@@ -35,6 +35,7 @@ $invalidApplications = @()
 $allApplications | ForEach-Object {
     $sp = $servicePrincipals[$PSItem.AppId]
     if ($null -eq $sp) {
+        # The application registration has no instance (Service Principal / Enterprise Application)
         $invalidApplications += $PSItem
     }
     elseif ($sp.AccountEnabled -eq $false) {
