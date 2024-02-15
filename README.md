@@ -1,8 +1,8 @@
-# Microsoft Graph - PowerShell SDK Examples
+# PowerShell for Microsoft Graph
 
-Identity and Access Management of Entra ID (Azure AD) via the PowerShell SDK for Microsoft Graph.
+Welcome to the home of PowerShell examples for Microsoft Graph – this repository is designed for administrators, developers, and IT professionals seeking to maximize the capabilities of Microsoft Graph within their PowerShell scripts. Whether you're automating Office 365 tasks, managing Entra ID resources, or integrating various Microsoft services, this repository aims to be a community driven go-to resource for scripts, modules, and best practices.
 
-## Prerequisite
+## Getting Started
 [PowerShell SDK for Microsoft Graph](https://github.com/microsoftgraph/msgraph-sdk-powershell)
 ```powershell
 Install-Module Microsoft.Graph -AllowClobber -Force
@@ -12,7 +12,7 @@ Optionally, also install:
 Install-Module Microsoft.Graph.Beta -AllowClobber -Force
 ```
 
-## Connect to Microsoft Graph
+### Connect to Microsoft Graph
 
 Using the Microsoft Graph Command Line Tools Enterprise Application
 ```powershell
